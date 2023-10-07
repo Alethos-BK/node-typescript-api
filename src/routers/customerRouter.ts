@@ -1,5 +1,6 @@
-import express from 'express';
-import customerController from '../controllers/customerController';
+import express from "express";
+import customerController from "../controllers/customerController";
+import { validateUserData } from "../middlewares/customerMiddleware";
 
 const router = express.Router();
 
@@ -16,7 +17,7 @@ router.get("/:id", customerController.getCustomer);
 
 router.get('/', customerController.getCustomers);
  
-router.post('/', customerController.postCustomer);
+router.post('/', validateUserData, customerController.postCustomer);
 
 router.patch('/:id', customerController.patchCustomer);
 
