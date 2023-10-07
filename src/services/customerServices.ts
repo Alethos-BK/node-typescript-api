@@ -14,7 +14,7 @@ async function addCustomer(customer: Customer): Promise<Customer> {
     return CustomerRepository.addCustomer(customer);
 }
 
-async function updateCustomer(id: number, newCustomer: any): Promise<Customer | null> {
+async function updateCustomer(id: number, newCustomer: Customer): Promise<Customer | null> {
     const existingCustomer = await CustomerRepository.getCustomerById(id);
 
     if (!existingCustomer) {
